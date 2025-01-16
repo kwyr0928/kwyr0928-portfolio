@@ -1,16 +1,16 @@
+import { type NextRequest } from 'next/server';
 import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-interface RequestBody {
-  name: string;
-  email: string;
-  message: string;
-}
-
-export async function POST(req: { json: () => Promise<RequestBody> | RequestBody; }) {
+export async function POST(req: Request | NextRequest) {
     try {
-        const { name, email, message } = await req.json();
+        interface ContactForm {
+            name: string;
+            email: string;
+            message: string;
+        }
+        const { name, email, message }: ContactForm = await req.json() as ContactForm;
         if (!name || !email || !message) {
           return new Response("入力情報が足りません", { status: 400 });
         }
