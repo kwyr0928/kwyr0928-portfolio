@@ -2,22 +2,28 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(req) {
+interface RequestBody {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export async function POST(req: { json: () => Promise<RequestBody> | RequestBody; }) {
     try {
-        // const { name, email, message } = await req.json();
-        // if (!name || !email || !message) {
-        //   return new Response("入力情報が足りません", { status: 400 });
-        // }
-        // await resend.emails.send({
-        //   from: "onboarding@resend.dev",
-        //   to: "yuri.kawase.0928@gmail.com",
-        //   subject: `ポートフォリオお問い合わせ`,
-        //   html: `
-        //     <p><strong>名前:</strong> ${name}</p>
-        //     <p><strong>メールアドレス:</strong> ${email}</p>
-        //     <p><strong>メッセージ:</strong> ${message}</p>
-        //   `,
-        // });
+        const { name, email, message } = await req.json();
+        if (!name || !email || !message) {
+          return new Response("入力情報が足りません", { status: 400 });
+        }
+        await resend.emails.send({
+          from: "onboarding@resend.dev",
+          to: "yuri.kawase.0928@gmail.com",
+          subject: `ポートフォリオお問い合わせ`,
+          html: `
+            <p><strong>名前:</strong> ${name}</p>
+            <p><strong>メールアドレス:</strong> ${email}</p>
+            <p><strong>メッセージ:</strong> ${message}</p>
+          `,
+        });
         return new Response("メールが送信されました", { status: 200 });
       } catch (error) {
         console.error(error);
