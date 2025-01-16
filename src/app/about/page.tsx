@@ -10,7 +10,7 @@ export default function HomePage() {
         <Header />
         <div className="pt-36 px-8 md:px-16">
         <p className="text-purple2 text-2xl">About</p>
-        <p className="mb-10">自己紹介をします。</p>
+        <p className="mb-10">自己紹介です。</p>
           <div className="flex justify-center flex-wrap gap-5">
           <Image
             src="/Icon.jpg"
@@ -27,7 +27,7 @@ export default function HomePage() {
                 小学4年～高校3年まで吹奏楽部に所属し、トランペットを3年間とクラリネットを6年間していました。
                 大学1年春～Javaに触れ、大学2年冬～独学でWeb開発全般を学んでいます。
                 現在は、ハッカソンなどの技術系イベントに参加したり、
-                授業内でWebアプリを開発したりしています。（2024/01/12時点）
+                授業内でWebアプリを開発したりしています。
 
             </p>
           </div>
@@ -35,17 +35,16 @@ export default function HomePage() {
       </div>
       <div className="my-10 px-8 md:px-16 pb-10">
       <p className="text-purple2 text-2xl">Skill</p>
-      <p className="mb-10">技術経験を紹介します。一度でも触ったことがあるものを載せています。</p>
+      <p className="mb-10">技術紹介です。一度でも触れたことがある技術を載せています。</p>
           <div>
           <div className="flex flex-wrap justify-center gap-5">
             <div className="w-[500px] bg-white p-8 rounded-lg shadow-md">
-              <div className="w-fit border border-purple2 px-5 py-2 rounded-md mb-8">
+              <div className="w-fit border border-purple2 px-5 py-2 rounded-md mb-5">
               <p className="text-purple2 font-bold">
                   frontend
               </p>
               </div>
-              <div className="mt-3">
-              <p>順不同　今後更新予定（2024/01/12時点）</p>
+              <div className="">
               <p>・HTML / CSS</p>
               <p>・Tailwind CSS</p>
               <p>・JavaScript</p>
@@ -57,32 +56,30 @@ export default function HomePage() {
               <p>・shadcn/ui</p>
               <p>・Material UI</p>
               <p>・Chakra UI</p>
-              <p>・Yamada UI</p>
+              <p>・Yamada UI　他</p>
               </div>
             </div>
             <div className="w-[500px] bg-white p-8 rounded-lg shadow-md">
-              <div className="w-fit border border-purple2 px-5 py-2 rounded-md mb-8">
+              <div className="w-fit border border-purple2 px-5 py-2 rounded-md mb-5">
               <p className="text-purple2 font-bold">
                   backend
               </p>
               </div>
-              <div className="mt-3">
-              <p>順不同　今後更新予定（2024/01/12時点）</p>
+              <div className="">
               <p>・Java</p>
               <p>・Python</p>
               <p>・JavaScript</p>
               <p>・TypeScript</p>
-              <p>・Express</p>
+              <p>・Express　他</p>
               </div>
             </div>
             <div className="w-[500px] bg-white p-8 rounded-lg shadow-md">
-              <div className="w-fit border border-purple2 px-5 py-2 rounded-md mb-8">
+              <div className="w-fit border border-purple2 px-5 py-2 rounded-md mb-5">
               <p className="text-purple2 font-bold">
                   others
               </p>
               </div>
-              <div className="mt-3">
-              <p>順不同　今後更新予定（2024/01/12時点）</p>
+              <div className="">
               <p>・Github</p>
               <p>・LINE Messaging API</p>
               <p>・Discord Bot</p>
@@ -98,7 +95,7 @@ export default function HomePage() {
               <p>・Arduino</p>
               <p>・M5Stack core2</p>
               <p>・vsCode</p>
-              <p>・Eclipse</p>
+              <p>・Eclipse　他</p>
               </div>
             </div>
           </div>

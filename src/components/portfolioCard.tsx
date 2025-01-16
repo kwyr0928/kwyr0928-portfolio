@@ -10,7 +10,7 @@ interface PortfolioCardProps {
 
 export default function PortfolioCard({ image, title, description, date }: PortfolioCardProps) {
     return (
-    <Card className="w-96 text-gray1 m-5">
+    <Card className="w-96 text-gray1 m-5 text-left">
           <CardHeader>
             <Image
               src={image}

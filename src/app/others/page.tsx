@@ -10,7 +10,6 @@ export default function HomePage() {
         <Header />
         <div className="px-8 pt-36 md:px-16">
           <p>このページは、今後更新予定です。</p>
-          <p>右上のメニューからご移動お願いいたします。</p>
         </div>
       </div>
     </div>
