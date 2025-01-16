@@ -1,7 +1,7 @@
 import { createClient } from 'microcms-js-sdk';
 import { NextResponse } from "next/server";
 
-export type Portfolio = {
+type Portfolio = {
     title: string;
     description: string;
     image: string;
@@ -16,12 +16,12 @@ if (!process.env.API_KEY) {
     throw new Error("MICROCMS_SERVICE_DOMAIN is required");
 }
 
-export const client = createClient({
+const client = createClient({
     serviceDomain: process.env.SERVICE_DOMAIN,
     apiKey: process.env.API_KEY,
 });
 
-export const getPortfolios = async () => {
+const getPortfolios = async () => {
     const portfolios = await client.getList<Portfolio>({
     endpoint: "portfolios",
     });
