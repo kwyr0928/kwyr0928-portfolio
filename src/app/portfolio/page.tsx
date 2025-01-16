@@ -1,5 +1,6 @@
 "use client";
 
+import { LoaderCircle } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Header from "~/components/header";
@@ -43,6 +44,7 @@ interface Portfolio {
 
 export default function HomePage() {
   const [portfolios, setPortfolios] = useState<Portfolio[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -54,6 +56,16 @@ export default function HomePage() {
     }
     void fetchData();
   }, []);
+
+  useEffect(() => {
+    if (portfolios.length > 0) {
+      setIsLoading(false);
+    }
+  }, [portfolios]);
+
+  if (isLoading) {
+    return <div className="h-full w-full flex justify-center items-center"><LoaderCircle size={50} className="text-purple2 animate-spin" /></div>;
+  }
 
   return (
     <div>

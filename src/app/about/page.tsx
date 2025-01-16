@@ -4,6 +4,7 @@ import Image from "next/image";
 import Header from "~/components/header";
 
 export default function HomePage() {
+  
   return (
     <div>
       <div className="h-full w-full">

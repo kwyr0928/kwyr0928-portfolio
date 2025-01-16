@@ -27,12 +27,10 @@ export default function Header() {
             <SheetTitle>
             </SheetTitle>
             <SheetDescription className="flex flex-col gap-y-5 text-center text-lg font-bold text-gray1">
-              <Link href="/" className="hover:text-gray1/80">ホーム</Link>
               <Link href="/about" className="hover:text-gray1/80">自己紹介</Link>
               <Link href="/portfolio" className="hover:text-gray1/80">ポートフォリオ</Link>
               <Link href="/blender" className="hover:text-gray1/80">blender勉強広場</Link>
               <Link href="/contact" className="hover:text-gray1/80">お問い合わせ</Link>
-              <Link href="/others" className="hover:text-gray1/80">その他</Link>
             </SheetDescription>
           </SheetHeader>
         </SheetContent>

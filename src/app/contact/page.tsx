@@ -1,18 +1,22 @@
 "use client";
 
 import { Label } from "@radix-ui/react-label";
-import { useRef } from "react";
+import { LoaderCircle } from "lucide-react";
+import { useRef, useState } from "react";
 import Header from "~/components/header";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import { toast } from "~/hooks/use-toast";
 
 export default function HomePage() {
+  const [isLoading, setIsLoading] = useState(false);
   const nameRef = useRef<HTMLInputElement>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const messageRef = useRef<HTMLInputElement>(null);
+
   const handleSend = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     const form = (e.target as HTMLButtonElement).form;
     if (form) {
       const name = (form[0] as HTMLInputElement).value;
@@ -26,6 +30,7 @@ export default function HomePage() {
         body: JSON.stringify({ name, email, message }),
       });
       if (response.ok) {
+        setIsLoading(false);
         toast({
           description: "送信されました！",
         });
@@ -33,12 +38,18 @@ export default function HomePage() {
           if (emailRef.current) emailRef.current.value = "";
           if (messageRef.current) messageRef.current.value = "";
       } else {
+        setIsLoading(false);
         toast({
+          variant: "destructive",
           description: "送信に失敗しました。",
         });
       }
     }
   };
+
+  if (isLoading) {
+    return <div className="h-full w-full flex justify-center items-center"><LoaderCircle size={50} className="text-purple2 animate-spin" /></div>;
+  }
 
   return (
     <div>

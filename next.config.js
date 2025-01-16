@@ -15,6 +15,15 @@ const config = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/portfolio',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default config;

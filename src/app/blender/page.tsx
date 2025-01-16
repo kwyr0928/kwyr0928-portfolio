@@ -1,5 +1,6 @@
 "use client";
 
+import { LoaderCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import BlenderCard from "~/components/blenderCard";
 import Header from "~/components/header";
@@ -27,6 +28,7 @@ interface Blender {
 
 export default function HomePage() {
   const [blender, setBlender] = useState<Blender[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
@@ -37,6 +39,17 @@ export default function HomePage() {
     }
     void fetchData();
   }, []);
+
+  useEffect(() => {
+    if (blender.length > 0) {
+      setIsLoading(false);
+    }
+  }, [blender]);
+
+  if (isLoading) {
+    return <div className="h-full w-full flex justify-center items-center"><LoaderCircle size={50} className="text-purple2 animate-spin" /></div>;
+  }
+
 
   return (
     <div>

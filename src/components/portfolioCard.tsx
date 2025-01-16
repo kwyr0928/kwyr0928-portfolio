@@ -25,7 +25,7 @@ export default function PortfolioCard({ image, title, description, date }: Portf
             <p className="break-words">{description}</p>
           </CardContent>
           <CardFooter>
-            <p className="ml-auto text-sm">{date}</p>
+            <p className="ml-auto text-sm mt-3">{date}</p>
           </CardFooter>
         </Card>
         )
